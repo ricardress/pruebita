@@ -1,0 +1,1 @@
+web: gunicorn pruebita.wsgi --log-file -
