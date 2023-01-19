@@ -9,5 +9,9 @@
 </head>
 <body>
     <h1>Hola Bienvenido</h1>
+    <h2>Lista de nombres</h2>
+    {% for item in u %}
+        <p>{{ item.nombre}}</p>
+    {% endfor %}
 </body>
 </html>

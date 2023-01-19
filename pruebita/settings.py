@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'pruebita.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'T370Z9pLaDvcftxo5eK2',
+        'HOST': 'containers-us-west-19.railway.app',
+        'PORT': '7609'
     }
 }
 
