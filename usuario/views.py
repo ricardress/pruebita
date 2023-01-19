@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Usuario
+from .forms import UsuarioForm
 
 
 def index(request):
@@ -10,3 +11,18 @@ def index(request):
         'u': usuario
     }
     return render(request, templateName, context)
+
+
+def create(request):
+    if request.method == "GET":
+        form = UsuarioForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'usuario/create.html', context)
+
+    if request.method == "POST":
+        form = UsuarioForm(request.POST)
+        if form.is_valid:
+            form.save()
+        return redirect('usuario')

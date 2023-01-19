@@ -13,5 +13,16 @@
     {% for item in u %}
         <p>{{ item.nombre}}</p>
     {% endfor %}
+
+    <h3>Usuarios</h3>
+
+<span class="btn-Aux"><a href="{% url 'usuario' %}">Ver Todos</a><a href="{% url 'usuario_create' %}">Agregar</a></span>
+    <ul class='list'>
+        {% for usuario in u %}
+            <li>{{ usuario }}
+
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
