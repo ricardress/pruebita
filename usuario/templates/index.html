@@ -19,7 +19,7 @@
 <span class="btn-Aux"><a href="{% url 'usuario' %}">Ver Todos</a><a href="{% url 'usuario_create' %}">Agregar</a></span>
     <ul class='list'>
         {% for usuario in u %}
-            <li>{{ usuario }}
+            <li>{{ usuario.nombre }}{{ usuario.apellido }}
 
             </li>
         {% endfor %}
