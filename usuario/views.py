@@ -26,3 +26,25 @@ def create(request):
         if form.is_valid:
             form.save()
         return redirect('usuario')
+
+
+def edit(request, id):
+    usuario = Usuario.objects.get(id=id)
+
+    if request.method == "GET":
+        form = UsuarioForm(instance=usuario)
+        context = {
+            'form': form,
+            'id': id
+        }
+        return render(request, 'usuario/edit.html', context)
+
+    if request.method == "POST":
+        form = UsuarioForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+        context = {
+            'form': form,
+            'id': id
+        }
+        return render(request, 'usuario/edit.html', context)
