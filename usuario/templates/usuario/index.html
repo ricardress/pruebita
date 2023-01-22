@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Principal</title>
+</head>
+<body>
+    <h1>Hola Bienvenido</h1>
+    <h2>Lista de nombres</h2>
+    {% for item in u %}
+        <p>{{ item.nombre}}</p>
+    {% endfor %}
+
+    <h3>Usuarios</h3>
+
+<span class="btn-Aux"><a href="{% url 'usuario' %}">Ver Todos</a><a href="{% url 'usuario_create' %}">Agregar</a></span>
+    <ul class='list'>
+        {% for usuario in u %}
+            <li>{{ usuario.nombre }} {{ usuario.apellido }}
+            <span><a href="{% url 'usuario_edit' id=usuario.id %}" class="btn btn-Editar">Editar</a></span>
+            <span><a href="{% url 'usuario_delete' id=usuario.id %}" class="btn btn-Borrar">Borrar</a></span>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
