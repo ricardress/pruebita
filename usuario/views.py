@@ -6,7 +6,7 @@ from .forms import UsuarioForm
 def index(request):
 
     usuario = Usuario.objects.all()
-    templateName="index.html"
+    templateName="usuario/index.html"
     context = {
         'u': usuario
     }
@@ -43,8 +43,10 @@ def edit(request, id):
         form = UsuarioForm(request.POST, instance=usuario)
         if form.is_valid():
             form.save()
-        context = {
-            'form': form,
-            'id': id
-        }
-        return render(request, 'usuario/edit.html', context)
+        return redirect('usuario')
+
+
+def delete(request, id):
+    usuarios = Usuario.objects.get(id=id)
+    usuarios.delete()
+    return redirect('usuario')
